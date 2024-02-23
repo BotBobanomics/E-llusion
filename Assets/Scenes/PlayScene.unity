@@ -291,15 +291,15 @@ MonoBehaviour:
   walkSpeed: 5
   sprintSpeed: 10
   slideSpeed: 12
-  speedIncreaseMul: 4
-  slopeIncreaseMul: 10
+  speedIncreaseMul: 1
+  slopeIncreaseMul: 5
   groundDrag: 15
-  jumpForce: 7
-  jumpCD: 0.25
-  airMult: 4
+  jumpForce: 8
+  jumpCD: 3
+  airMult: 2
   crouchSpeed: 2.5
   crouchYScale: 0.5
-  jumpKey: 110
+  jumpKey: 32
   sprintKey: 304
   crouchKey: 99
   playerHeight: 2
