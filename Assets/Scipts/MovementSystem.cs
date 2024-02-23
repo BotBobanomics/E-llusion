@@ -73,6 +73,8 @@ public class MovementSystem : MonoBehaviour
 
     private void Start()
     {
+        grounded = true;
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
@@ -110,7 +112,7 @@ public class MovementSystem : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // jump input
-        if(Input.GetKey(jumpKey) && jumpReady && grounded)
+        if(Input.GetKey(jumpKey) && jumpReady) // && grounded)
         {
             jumpReady = false;
 
@@ -280,6 +282,8 @@ public class MovementSystem : MonoBehaviour
 
     private void Jump()
     {
+        Debug.Log("Jumping");
+
         exitingSlope = true;
 
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z); // resets y velocity so jump always same height
