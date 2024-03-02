@@ -112,7 +112,7 @@ public class MovementSystem : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // jump input
-        if(Input.GetKey(jumpKey) && jumpReady) // && grounded)
+        if(Input.GetKey(jumpKey) && jumpReady && grounded)
         {
             jumpReady = false;
 
@@ -282,7 +282,7 @@ public class MovementSystem : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log("Jumping");
+        //Debug.Log("Jumping");
 
         exitingSlope = true;
 
