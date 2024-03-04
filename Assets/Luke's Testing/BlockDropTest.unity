@@ -338,8 +338,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockPrefab: {fileID: 498951111910709039, guid: 26572b95d830c73478aaff07900e6caa, type: 3}
   heightOffset: 10
-  dropDuration: 4
-  dropDelay: 0.2
+  speed: 10
+  dropDelay: 0.1
   debug: 0
 --- !u!65 &467748293
 BoxCollider:

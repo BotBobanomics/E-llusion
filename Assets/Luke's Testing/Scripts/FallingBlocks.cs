@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-//use enums to determine different fall types
 public class FallingBlocks : MonoBehaviour
 {
     [SerializeField] GameObject blockPrefab;
@@ -11,7 +10,7 @@ public class FallingBlocks : MonoBehaviour
     float height;
     float width;
     [SerializeField]float heightOffset;
-    [SerializeField]float dropDuration;
+    [SerializeField]float speed;
     [SerializeField]float dropDelay;
 
     [SerializeField] bool debug = false;
@@ -72,15 +71,23 @@ public class FallingBlocks : MonoBehaviour
     void MoveUp(){
         blocksParent.transform.Translate(Vector3.up*heightOffset, Space.World);
     }
-    //temp: will try to rewrite with interpolation since below is not accurate at small duration
-    IEnumerator TranslateOverTime(GameObject block)
+    IEnumerator DropBlock(GameObject block)
     {
-        float elapsedTime = 0f;
+        float moved = 0;
+        Vector3 startPoint = block.transform.position;
+        Vector3 endPoint = startPoint + Vector3.down*heightOffset;
 
-        while (elapsedTime < dropDuration)
+        while (true)
         {
-            block.transform.Translate(Vector3.down * (heightOffset / dropDuration) * Time.deltaTime, Space.World);
-            elapsedTime += Time.deltaTime;
+            float move = speed * Time.deltaTime;
+            moved += move;
+            float percentMoved = moved/heightOffset;
+
+            
+            block.transform.position = Vector3.Lerp(startPoint, endPoint, percentMoved);
+            if(percentMoved>=1f){
+                break;
+            }
             yield return null;
         }
         finishedBlocks += 1;
@@ -89,7 +96,7 @@ public class FallingBlocks : MonoBehaviour
         for(int i = 0; i<totalBlocks;i++){
             GameObject block = blocksParent.transform.GetChild(i).gameObject;
             block.GetComponent<Renderer>().enabled = true;
-            StartCoroutine(TranslateOverTime(block));
+            StartCoroutine(DropBlock(block));
             yield return new WaitForSeconds(delay);
         }
     }
