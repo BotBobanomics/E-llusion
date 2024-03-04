@@ -89,6 +89,7 @@ public class MovementSystem : MonoBehaviour
     {
         // checks if on ground
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, isGround);
+        Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f));
 
         MyInput();
         SpeedLimiter();
@@ -286,9 +287,13 @@ public class MovementSystem : MonoBehaviour
 
         exitingSlope = true;
 
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z); // resets y velocity so jump always same height
+        Vector3 rbV = rb.velocity;
+        rbV.y = jumpForce/rb.mass;
+        rb.velocity = rbV;
 
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        //rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z); // resets y velocity so jump always same height
+
+        //rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
     private void JumpReset()
