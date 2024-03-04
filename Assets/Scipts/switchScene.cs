@@ -10,4 +10,8 @@ public class SceneSwitcher : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    private void OnTriggerEnter(){
+        SceneManager.LoadScene(sceneName);
+    }
 }
