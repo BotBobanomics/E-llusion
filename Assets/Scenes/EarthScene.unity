@@ -1398,8 +1398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b499afe0819c745984d5dea23dbb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 400
-  sensY: 400
+  sensX: 1
+  sensY: 1
   orientation: {fileID: 1020426535}
 --- !u!45 &506887380
 Skybox:
@@ -4949,13 +4949,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779604858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12896499, y: 0.36457014, z: -0.052891094, w: 0.9206841}
-  m_LocalPosition: {x: 8.95, y: 7.67, z: 7.23}
-  m_LocalScale: {x: 11.478393, y: 8.070614, z: 1}
+  m_LocalRotation: {x: 0.12687413, y: 0.32951745, z: -0.057726853, w: 0.93380344}
+  m_LocalPosition: {x: 8.67, y: 7.78, z: 6.97}
+  m_LocalScale: {x: 13.391841, y: 8.070614, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1195611353}
-  m_LocalEulerAnglesHint: {x: 16.024, y: 43.177, z: -0.2}
+  m_LocalEulerAnglesHint: {x: 15.962, y: 38.671, z: -1.442}
 --- !u!65 &1779604860
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5056,13 +5056,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823456181}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13026133, y: -0.06086429, z: -0.002676977, w: 0.9896062}
-  m_LocalPosition: {x: -0.76, y: 8.6, z: 10.15}
+  m_LocalRotation: {x: 0.13026068, y: -0.019919055, z: 0.0027080674, w: 0.99127597}
+  m_LocalPosition: {x: -0.74, y: 8.71, z: 9.75}
   m_LocalScale: {x: 11.242631, y: 11.093059, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1195611353}
-  m_LocalEulerAnglesHint: {x: 14.921, y: -7.203, z: -1.254}
+  m_LocalEulerAnglesHint: {x: 14.973, y: -2.301, z: 0.011}
 --- !u!65 &1823456183
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5486,7 +5486,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.21344636, y: 0.22164105, z: -0.07122432, w: 0.94881135}
   m_LocalPosition: {x: 5.98, y: 3.24, z: 6.53}
-  m_LocalScale: {x: 5.1242, y: 3.5624173, z: 1}
+  m_LocalScale: {x: 6.1444283, y: 3.5624173, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1195611353}
