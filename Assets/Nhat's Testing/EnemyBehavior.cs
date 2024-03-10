@@ -29,7 +29,7 @@ public class EnemyBehavior : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);    //  destroys the enemy
-            // (handles what happens when player is chased by enemy)
+            // damage is set within the inspector
             GameManager.PlayerHealth -= damage;
         }
     }
