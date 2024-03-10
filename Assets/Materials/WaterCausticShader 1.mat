@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterCausticShader
+  m_Name: WaterCausticShader 1
   m_Shader: {fileID: -6465566751694194690, guid: 6b58c6f5c4b7afb4f87d2e86e662e88c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -40,11 +40,13 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
+    - _distortion: 10
     - _power: 5
-    - _size: 1.25
+    - _size: 1
     - _speed: 2
     - _transparency: 0.5
     - _transparent: 0
+    - _useFog: 0
     m_Colors:
     - _baseColor: {r: 1, g: 1, b: 1, a: 0}
     - _color: {r: 1, g: 1, b: 1, a: 0}
