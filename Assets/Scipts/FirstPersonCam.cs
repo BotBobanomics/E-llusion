@@ -20,21 +20,24 @@ public class FirstPersonCam : MonoBehaviour
 
     private void Update()
     {
-        // mouse input
-        float mouseX = Input.GetAxis("Mouse X") * sensX;
-        float mouseY = Input.GetAxis("Mouse Y") * sensY;
-
-        yRotation += mouseX;
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // locks how far the player cam can go, 90 degrees)
-
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
-
-        // checks right alt input
-        if (Input.GetKeyDown(KeyCode.RightAlt))
+        if (GameManager.Instance.State == GameManager.GameState.Play)
         {
-            ToggleCursorLock();
+            // mouse input
+            float mouseX = Input.GetAxis("Mouse X") * sensX;
+            float mouseY = Input.GetAxis("Mouse Y") * sensY;
+
+            yRotation += mouseX;
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f); // locks how far the player cam can go, 90 degrees)
+
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+
+            // checks right alt input
+            if (Input.GetKeyDown(KeyCode.RightAlt))
+            {
+                ToggleCursorLock();
+            }
         }
     }
 

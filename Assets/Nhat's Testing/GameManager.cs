@@ -6,20 +6,40 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public enum GameState
+    {
+        Play,
+        Pause,
+        Win,
+        Lose
+    }
+
     public static GameManager Instance;
 
     public GameState State;
+
+    public static event Action<GameState> StateChanged;
 
     private void Awake()
     {
         Instance = this;
     }
-    public void UpdateState(GameState newState)
+
+    private void Start()
+    {
+        State = GameState.Play;
+    }
+    public void UpdateGameState(GameState newState)
     {
         State = newState;
         switch (newState)
         {
             case GameState.Play:
+                PlayGame();
+                break;
+            case GameState.Pause:
+                Debug.Log("pausing");
+                PauseGame();
                 break;
             case GameState.Win:
                 WinGame();
@@ -27,7 +47,21 @@ public class GameManager : MonoBehaviour
             case GameState.Lose:
                 LoseGame();
                 break;
+            default:
+                Debug.Log("ERROR: Unknown game state: " + newState);
+                break;
         }
+        StateChanged?.Invoke(newState);
+    }
+
+    private void PlayGame()
+    {
+        Time.timeScale = 1f;
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0f;
     }
 
     private void LoseGame()
@@ -40,11 +74,5 @@ public class GameManager : MonoBehaviour
         throw new NotImplementedException();
     }
 
-    public enum GameState
-{
-    Play,
-    Win,
-    Lose
-}
     public static int PlayerHealth { get; set; }
 }

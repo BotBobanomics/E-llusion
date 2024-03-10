@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Player Info")]
-    public int maxHealth = 100; // Maximum health 
+    public int maxHealth; // Maximum health 
     public int currentHealth; // Current health 
 
     private void Start()

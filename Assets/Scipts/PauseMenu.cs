@@ -10,33 +10,37 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject GameUI;   // Game UI from Canvas
     public GameObject PauseMenuUI;  // Pause Menu UI from Canvas
+    public GameObject SettingsUI;
 
     private void Start()
     {
         // start of game make sure the right UI shows and the rest is inactive
         PauseMenuUI.SetActive(false);
+        SettingsUI.SetActive(false);
         GameUI.SetActive(true);
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))   // Clicking escape to pause/resume the game
         {
-            if (!gameIsPaused)
+            if (GameManager.Instance.State == GameManager.GameState.Pause)
             {
-                Pause();
+                // Resume if the game is already in Pause state
+                Resume();
             } else
             {
-                Resume();
+                // Pause if the game is not in Pause state
+                Pause();
             }
         }
     }
     public void Pause()
     {
         // change the UI accordingly, then freeze the game and unlocking the cursor
+        GameManager.Instance.UpdateGameState(GameManager.GameState.Pause);
+        gameIsPaused = true; 
         PauseMenuUI.SetActive(true);
         GameUI.SetActive(false);
-        Time.timeScale = 0f;
-        gameIsPaused = true; 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -44,11 +48,23 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         // change the UI accordingly, then unfreeze the game and locking the cursor
+        GameManager.Instance.UpdateGameState(GameManager.GameState.Play);
+        gameIsPaused = false;
         PauseMenuUI.SetActive(false);
         GameUI.SetActive(true);
-        Time.timeScale = 1f;
-        gameIsPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public void Settings()
+    {
+        PauseMenuUI.SetActive(false);
+        SettingsUI.SetActive(true);
+    }
+
+    public void SettingsExit()
+    {
+        PauseMenuUI.SetActive(true);
+        SettingsUI.SetActive(false);
     }
 }
