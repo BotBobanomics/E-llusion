@@ -11,7 +11,7 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        HealthBarSlider.maxValue = GameManager.PlayerHealth;
+        HealthBarSlider.maxValue = 100;
     }
 
     // Update is called once per frame
