@@ -53,7 +53,7 @@ public class LevelTriggers : MonoBehaviour
     IEnumerator effects(){
         while(true){
             if(pushPlayer){
-                PlayerManager.Instance.pushPlayer(pushAmount);
+                PlayerManager.Instance.pushPlayer(pushAmount,Vector3.up,20f);
             }
 
             yield return null;

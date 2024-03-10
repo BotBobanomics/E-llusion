@@ -36,11 +36,11 @@ public class PlayerManager : MonoBehaviour
     public void enablePlayerGravity(){
         playerRB.useGravity = true;
     }
-    public void pushPlayer(float amount){
+    public void pushPlayer(float amount, Vector3 dir, float limit=0f){
         //playerRB.velocity = Vector3.up * amount;
-        playerRB.AddForce(Vector3.up * amount, ForceMode.Acceleration);
-        if(playerRB.velocity.magnitude>20f){
-            playerRB.velocity = playerRB.velocity.normalized * 20f;
+        playerRB.AddForce(dir * amount, ForceMode.Acceleration);
+        if(limit>0&&playerRB.velocity.magnitude>limit){
+            playerRB.velocity = playerRB.velocity.normalized * limit;
         }
     }
 }
