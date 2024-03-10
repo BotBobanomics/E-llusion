@@ -32,13 +32,12 @@ public class FirstPersonCam : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
             orientation.rotation = Quaternion.Euler(0, yRotation, 0);
-
+        }
             // checks right alt input
             if (Input.GetKeyDown(KeyCode.RightAlt))
             {
                 ToggleCursorLock();
             }
-        }
     }
 
     void ToggleCursorLock() // chnages cursor state
