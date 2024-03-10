@@ -37,7 +37,7 @@ public class PlayerManager : MonoBehaviour
         playerRB.useGravity = true;
     }
     public void pushPlayer(float amount){
-        playerRB.velocity = Vector3.up * amount;
-        //playerRB.AddForce(Vector3.up * amount, ForceMode.Impulse);
+        //playerRB.velocity = Vector3.up * amount;
+        playerRB.AddForce(Vector3.up * amount, ForceMode.Acceleration);
     }
 }

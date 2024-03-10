@@ -9,10 +9,25 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/PlayScene.unity
-    guid: d63324ba17d2d7244a2380f73f58060b
+    path: Assets/Scenes/SettingScene.unity
+    guid: 4295947081ead6e4db9082ec5d3e81e2
   - enabled: 1
     path: Assets/Scenes/CreditScene.unity
     guid: 15ea3e8349cc5544d98f685991f2bb40
+  - enabled: 1
+    path: Assets/Scenes/PlayScene.unity
+    guid: d63324ba17d2d7244a2380f73f58060b
+  - enabled: 1
+    path: Assets/Scenes/EarthScene.unity
+    guid: 8a331e3dffc3987498e38af578cd758c
+  - enabled: 1
+    path: Assets/Scenes/WaterScene.unity
+    guid: 20032cb91a5d1094bace75745be09a0b
+  - enabled: 1
+    path: Assets/Scenes/FireScene.unity
+    guid: ad3f3d0276ca5a84c8cdc1a32eaa67ab
+  - enabled: 1
+    path: Assets/Scenes/AirScene.unity
+    guid: 6ef9ff7f5d3d3ce47b58df1869e7fcbd
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
