@@ -11,7 +11,8 @@ public class LevelTriggers : MonoBehaviour
     [SerializeField] bool pushPlayer;
     [SerializeField] float pushAmount;
     [Header("Gravity")]
-    [SerializeField] bool disableGravity;
+    [SerializeField] bool changeGravity;
+    [SerializeField] float gravAmount;
 
     private Coroutine effectsCoroutine;
 
@@ -38,22 +39,18 @@ public class LevelTriggers : MonoBehaviour
         }
     }
     private void startEffect(){
-        if(disableGravity){
-            PlayerManager.Instance.disablePlayerGravity();
-        }
-        
         effectsCoroutine = StartCoroutine(effects());
     }
     private void stopEffect(){
-        if(disableGravity){
-            PlayerManager.Instance.enablePlayerGravity();
-        }
         StopCoroutine(effectsCoroutine);
     }
     IEnumerator effects(){
         while(true){
             if(pushPlayer){
                 PlayerManager.Instance.pushPlayer(pushAmount,Vector3.up,20f);
+            }
+            if(changeGravity){
+                PlayerManager.Instance.setYVelocity(gravAmount);
             }
 
             yield return null;

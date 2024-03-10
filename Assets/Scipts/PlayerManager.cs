@@ -30,12 +30,12 @@ public class PlayerManager : MonoBehaviour
     public void respawnPlayer(){
         player.transform.position = spawnLoc;
     }
-    public void disablePlayerGravity(){
-        playerRB.useGravity = false;
+    public void setYVelocity(float y){
+        Vector3 v = playerRB.velocity;
+        v.y=y;
+        playerRB.velocity=v;
     }
-    public void enablePlayerGravity(){
-        playerRB.useGravity = true;
-    }
+
     public void pushPlayer(float amount, Vector3 dir, float limit=0f){
         //playerRB.velocity = Vector3.up * amount;
         playerRB.AddForce(dir * amount, ForceMode.Acceleration);
