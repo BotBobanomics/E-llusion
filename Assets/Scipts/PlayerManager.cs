@@ -39,5 +39,8 @@ public class PlayerManager : MonoBehaviour
     public void pushPlayer(float amount){
         //playerRB.velocity = Vector3.up * amount;
         playerRB.AddForce(Vector3.up * amount, ForceMode.Acceleration);
+        if(playerRB.velocity.magnitude>20f){
+            playerRB.velocity = playerRB.velocity.normalized * 20f;
+        }
     }
 }

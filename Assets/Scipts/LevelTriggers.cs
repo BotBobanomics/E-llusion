@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LevelTriggers : MonoBehaviour
 {
+    [Header("Spawn")]
+    [SerializeField] bool setSpawn;
+    [SerializeField] bool respawnPlayer;
     [Header("Push")]
     [SerializeField] bool pushPlayer;
     [SerializeField] float pushAmount;
@@ -15,13 +18,23 @@ public class LevelTriggers : MonoBehaviour
     private void OnTriggerEnter(Collider other){
         if(other.CompareTag("Player")){
             //Debug.Log("Player Enter Trigger");
-            startEffect();
+            if(respawnPlayer){
+                PlayerManager.Instance.respawnPlayer();
+            }
+            else if(setSpawn){
+                PlayerManager.Instance.setPlayerSpawn(transform.position);
+            }
+            else{
+                startEffect();
+            }
         }
     }
     private void OnTriggerExit(Collider other){
         if(other.CompareTag("Player")){
             //Debug.Log("Player Exit Trigger");
-            stopEffect();
+            if(!respawnPlayer&&!setSpawn){
+                stopEffect();
+            }
         }
     }
     private void startEffect(){
