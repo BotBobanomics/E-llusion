@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
         else{
             _instance =  this;
         }
-        spawnLoc = transform.TransformPoint(player.transform.position);
+        spawnLoc = player.transform.position;
         playerRB = player.GetComponent<Rigidbody>();
     }
     public Vector3 GetPlayerLoc(){
@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
         spawnLoc = spawnPoint;
     }
     public void respawnPlayer(){
-        player.transform.position = transform.InverseTransformPoint(spawnLoc);
+        player.transform.position = spawnLoc;
     }
     public void disablePlayerGravity(){
         playerRB.useGravity = false;
