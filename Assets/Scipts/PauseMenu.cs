@@ -6,15 +6,14 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool gameIsPaused = false;
 
     public GameObject GameUI;   // Game UI from Canvas
     public GameObject PauseMenuUI;  // Pause Menu UI from Canvas
-    public GameObject SettingsUI;
+    public GameObject SettingsUI;   // Settings UI from Canvas
 
     private void Start()
     {
-        // start of game make sure the right UI shows and the rest is inactive
+        // start of game make sure the right UI shows and the rest is inactive; alternatively could be replace by just using Resume()
         PauseMenuUI.SetActive(false);
         SettingsUI.SetActive(false);
         GameUI.SetActive(true);
@@ -38,7 +37,6 @@ public class PauseMenu : MonoBehaviour
     {
         // change the UI accordingly, then freeze the game and unlocking the cursor
         GameManager.Instance.UpdateGameState(GameManager.GameState.Pause);
-        gameIsPaused = true; 
         PauseMenuUI.SetActive(true);
         GameUI.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
@@ -49,8 +47,8 @@ public class PauseMenu : MonoBehaviour
     {
         // change the UI accordingly, then unfreeze the game and locking the cursor
         GameManager.Instance.UpdateGameState(GameManager.GameState.Play);
-        gameIsPaused = false;
         PauseMenuUI.SetActive(false);
+        SettingsUI.SetActive(false);
         GameUI.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

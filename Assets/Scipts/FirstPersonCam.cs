@@ -16,6 +16,8 @@ public class FirstPersonCam : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        sensX = PlayerPrefs.GetFloat("Sensitivity");
+        sensY = PlayerPrefs.GetFloat("Sensitivity");
     }
 
     private void Update()
@@ -52,5 +54,10 @@ public class FirstPersonCam : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+    }
+    public void ChangeSensitivity()
+    {
+        sensX = PlayerPrefs.GetFloat("Sensitivity");
+        sensY = PlayerPrefs.GetFloat("Sensitivity");
     }
 }
