@@ -1,24 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class GameSettings : MonoBehaviour
 {
-    public Slider VolumeSlider;
-    public Slider SensSlider;
+    [Header("Volume")]
+    public AudioMixer audioMixer;
+    public TextMeshProUGUI volumeText;
+    public Slider volumeSlider;
+    public int minVolume;
+    public int maxVolume;
 
+    [Header("Sensitivity")]
+    public TextMeshProUGUI sensText;
+    public Slider sensSlider;
+    // min and max to be set in inspector
+    public float minSens;
+    public float maxSens;
+
+    private void Awake()
+    {
+        audioMixer.SetFloat("volume", Mathf.Log10(PlayerPrefs.GetFloat("Volume")) * 20);
+    }
     private void Start()
     {
-        SensSlider.value = PlayerPrefs.GetFloat("Sensitivity");
+        // set the max and min for volume
+        volumeSlider.maxValue = maxVolume;
+        volumeSlider.minValue = minVolume;
+
+        // update volume UI
+        audioMixer.SetFloat("volume", Mathf.Log10(PlayerPrefs.GetFloat("Volume")) * 20);
+        volumeSlider.value = PlayerPrefs.GetFloat("Volume");
+        volumeText.text = "Volume: " + (PlayerPrefs.GetFloat("Volume") * 100).ToString("0") + "%";
+
+        // set the max and min for sens
+        sensSlider.minValue = minSens;
+        sensSlider.maxValue = maxSens;
+
+        // update sens UI
+        sensSlider.value = PlayerPrefs.GetFloat("Sensitivity");
+        sensText.text = "Sensitivity: " + PlayerPrefs.GetFloat("Sensitivity").ToString("0.00");
     }
     public void SetVolume(float volume)
     {
-        Debug.Log(volume);
+        // change the volume; math is used to convert percentage (0 to 1) to decibel
+        audioMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("Volume", volume);
+        volumeText.text = "Volume: " + (PlayerPrefs.GetFloat("Volume") * 100).ToString("0") + "%";
     }
     public void SetSensitivity(float sensitivity)
     {
+        // Set PlayerPrefs and update text
         PlayerPrefs.SetFloat("Sensitivity", sensitivity);
-        Debug.Log(PlayerPrefs.GetFloat("Sensitivity"));
+        sensText.text = "Sensitivity: " + PlayerPrefs.GetFloat("Sensitivity").ToString("0.00");
     }
 }

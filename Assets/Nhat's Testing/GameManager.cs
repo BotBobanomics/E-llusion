@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
                 PlayGame();
                 break;
             case GameState.Pause:
-                Debug.Log("pausing");
                 PauseGame();
                 break;
             case GameState.Win:
