@@ -10,7 +10,7 @@ public class GameSettings : MonoBehaviour
 
     private void Start()
     {
-        SensSlider.value = PlayerPrefs.GetFloat("Sensitivity");
+        SensSlider.value = PlayerPrefs.GetFloat("Sensitivity",1f);
     }
     public void SetVolume(float volume)
     {
@@ -20,5 +20,9 @@ public class GameSettings : MonoBehaviour
     {
         PlayerPrefs.SetFloat("Sensitivity", sensitivity);
         Debug.Log(PlayerPrefs.GetFloat("Sensitivity"));
+    }
+    public void Reset(){
+        PlayerPrefs.SetFloat("Sensitivity", 1f);
+        SensSlider.value = 1f;
     }
 }
