@@ -35,28 +35,36 @@ public class GameSettings : MonoBehaviour
 
         // update volume UI
         audioMixer.SetFloat("volume", Mathf.Log10(PlayerPrefs.GetFloat("Volume")) * 20);
-        volumeSlider.value = PlayerPrefs.GetFloat("Volume");
-        volumeText.text = "Volume: " + (PlayerPrefs.GetFloat("Volume") * 100).ToString("0") + "%";
+        volumeSlider.value = PlayerPrefs.GetFloat("Volume", 0f);
+        volumeText.text = "Volume: " + (PlayerPrefs.GetFloat("Volume", 0f) * 100).ToString("0") + "%";
 
         // set the max and min for sens
         sensSlider.minValue = minSens;
         sensSlider.maxValue = maxSens;
 
         // update sens UI
-        sensSlider.value = PlayerPrefs.GetFloat("Sensitivity");
-        sensText.text = "Sensitivity: " + PlayerPrefs.GetFloat("Sensitivity").ToString("0.00");
+        sensSlider.value = PlayerPrefs.GetFloat("Sensitivity", 1f);
+        sensText.text = "Sensitivity: " + PlayerPrefs.GetFloat("Sensitivity", 1f).ToString("0.00");
     }
     public void SetVolume(float volume)
     {
         // change the volume; math is used to convert percentage (0 to 1) to decibel
         audioMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("Volume", volume);
-        volumeText.text = "Volume: " + (PlayerPrefs.GetFloat("Volume") * 100).ToString("0") + "%";
+        volumeText.text = "Volume: " + (PlayerPrefs.GetFloat("Volume", 0f) * 100).ToString("0") + "%";
     }
     public void SetSensitivity(float sensitivity)
     {
         // Set PlayerPrefs and update text
         PlayerPrefs.SetFloat("Sensitivity", sensitivity);
-        sensText.text = "Sensitivity: " + PlayerPrefs.GetFloat("Sensitivity").ToString("0.00");
+        sensText.text = "Sensitivity: " + PlayerPrefs.GetFloat("Sensitivity", 1f).ToString("0.00");
+    }
+    public void Reset(){
+        PlayerPrefs.SetFloat("Sensitivity", 1f);
+        sensSlider.value = 1f;
+    }
+    public void ResetCoins(){
+        PlayerPrefs.SetFloat("CoinFlags", 0f);
+        PlayerPrefs.SetFloat("Coins", 0f);
     }
 }

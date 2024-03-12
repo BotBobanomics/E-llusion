@@ -10,6 +10,7 @@ public class WallJump : MonoBehaviour
     [SerializeField] float mult;
     private Vector3 wallNormal;
     void OnCollisionStay(Collision other){
+        //While touching wall, calculate normal of contact point and push in the opposite direction when space is pushed. 
         if (other.contacts.Length > 0 && other.gameObject.CompareTag("isWall")){
             wallNormal = other.contacts[0].normal;      
             if(Input.GetKey(KeyCode.Space)){

@@ -24,6 +24,7 @@ public class FallingBlocks : MonoBehaviour
             Debug.LogError("Renderer not found on the GameObject");
             return;
         }
+        //disable original renderer, get block dimensions
         r.enabled = false;
         length = transform.localScale.x;
         height = transform.localScale.y;
@@ -46,6 +47,7 @@ public class FallingBlocks : MonoBehaviour
 
     void Update()
     {
+        //destroy falling blocks, reenable original object
         if(finishedBlocks==totalBlocks){
             r.enabled = true;
             Destroy(blocksParent);
@@ -54,7 +56,7 @@ public class FallingBlocks : MonoBehaviour
     void DebugTool(){
         Debug.Log("Length: " + length + ", Height: " + height + ", Width: " + width);
     }
-    void CreateBlock(Vector3 targetPos){
+    void CreateBlock(Vector3 targetPos){ //create block at location
         GameObject block = Instantiate(blockPrefab, new Vector3(targetPos.x, targetPos.y, targetPos.z), Quaternion.identity);
         block.transform.SetParent(blocksParent.transform,false);
         block.GetComponent<Renderer>().enabled = false;
@@ -68,10 +70,10 @@ public class FallingBlocks : MonoBehaviour
             }
         }
     }
-    void MoveUp(){
+    void MoveUp(){ //move parent object above originals location
         blocksParent.transform.Translate(Vector3.up*heightOffset, Space.World);
     }
-    IEnumerator DropBlock(GameObject block)
+    IEnumerator DropBlock(GameObject block) //drop indivudal block
     {
         float moved = 0;
         Vector3 startPoint = block.transform.position;
@@ -92,7 +94,7 @@ public class FallingBlocks : MonoBehaviour
         }
         finishedBlocks += 1;
     }
-    IEnumerator DropBlocks(float delay){
+    IEnumerator DropBlocks(float delay){ //drop all blocks
         for(int i = 0; i<totalBlocks;i++){
             GameObject block = blocksParent.transform.GetChild(i).gameObject;
             block.GetComponent<Renderer>().enabled = true;

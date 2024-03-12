@@ -16,17 +16,20 @@ public class MovingPlatform : MonoBehaviour
     private float percentMoved = 0f;
     
     void Start(){
+        //calculate start and end points along with distance
         startPoint = transform.position;
         endPoint = startPoint+moveAmount;
         direction = (startPoint - endPoint).normalized;
         distanceTotal = Vector3.Distance(startPoint,endPoint);
     }
     void OnTriggerEnter(Collider other){
+        //start when player enters trigger area
         if(other.CompareTag("Player")){
             startMove = true;
         }   
     }
     void Update(){
+        //move towards location once triggered, reset once done
         if(startMove&&percentMoved<=1f){
             moved += speed * Time.deltaTime;
         }
