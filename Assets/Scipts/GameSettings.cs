@@ -69,4 +69,7 @@ public class GameSettings : MonoBehaviour
         PlayerPrefs.SetFloat("CoinFlags", 0f);
         PlayerPrefs.SetFloat("Coins", 0f);
     }
+    public void QuitGame(){
+        Application.Quit();
+    }
 }
