@@ -10,6 +10,7 @@ public class CoinScript : MonoBehaviour
     int bitID;
     int coinFlags;
     int coins;
+    float intitalY;
     void Start(){
         //use coin flags as a bit vector
         coinFlags = PlayerPrefs.GetInt("CoinFlags",0);
@@ -18,6 +19,7 @@ public class CoinScript : MonoBehaviour
         if(checkFlag()){
             gameObject.SetActive(false);
         }
+        intitalY = transform.position.y;
     }
     void setFlag(){ //set the coins flag
         coinFlags |= bitID;
@@ -35,5 +37,9 @@ public class CoinScript : MonoBehaviour
             setFlag();
             gameObject.SetActive(false);
         }
+    }
+    void Update(){
+        transform.Rotate(Vector3.up, 20f * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, intitalY + (Mathf.Sin(Time.time * 2) * 0.2f), transform.position.z);
     }
 }

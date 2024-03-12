@@ -1754,8 +1754,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bab8ad0715a0cd45bdcbd11fe40bb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VolumeSlider: {fileID: 895705565}
-  SensSlider: {fileID: 1391533605}
+  audioMixer: {fileID: 0}
+  volumeText: {fileID: 0}
+  volumeSlider: {fileID: 0}
+  minVolume: 0
+  maxVolume: 0
+  sensText: {fileID: 0}
+  sensSlider: {fileID: 0}
+  minSens: 0
+  maxSens: 0
 --- !u!114 &693925170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6064,6 +6071,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 319872595}
     - target: {fileID: 2196334589323418257, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196334589323418257, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196334589323418257, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196334589323418257, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -6103,7 +6122,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2196334589323418257, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
