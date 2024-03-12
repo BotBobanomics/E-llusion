@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other){
+    void OnTriggerEnter(Collider other){ //set the players spawn point
         if(other.CompareTag("Player")){
             PlayerManager.Instance.setPlayerSpawn(transform.position);
         }

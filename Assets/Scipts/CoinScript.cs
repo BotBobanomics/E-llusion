@@ -11,13 +11,15 @@ public class CoinScript : MonoBehaviour
     int coinFlags;
     int coins;
     void Start(){
+        //use coin flags as a bit vector
         coinFlags = PlayerPrefs.GetInt("CoinFlags",0);
+        //get specific bit location for coin
         bitID = 1<<coinID;
         if(checkFlag()){
             gameObject.SetActive(false);
         }
     }
-    void setFlag(){
+    void setFlag(){ //set the coins flag
         coinFlags |= bitID;
         PlayerPrefs.SetInt("CoinFlags",coinFlags);
         coins = PlayerPrefs.GetInt("Coins",0);
@@ -25,10 +27,10 @@ public class CoinScript : MonoBehaviour
         PlayerPrefs.SetInt("Coins",coins);
         coinText.text = "Coins: " + coins;
     }
-    bool checkFlag(){
+    bool checkFlag(){ //check if coin flag has been set
         return (coinFlags&bitID) != 0;
     }
-    void OnTriggerEnter(Collider other){
+    void OnTriggerEnter(Collider other){ //coin is collected
         if(other.CompareTag("Player")){
             setFlag();
             gameObject.SetActive(false);

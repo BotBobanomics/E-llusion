@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//control different triggers in one script
 public class LevelTriggers : MonoBehaviour
 {
     [Header("Spawn")]
@@ -17,6 +17,7 @@ public class LevelTriggers : MonoBehaviour
     private Coroutine effectsCoroutine;
 
     private void OnTriggerEnter(Collider other){
+        //check if the trigger is related to spawn, else start
         if(other.CompareTag("Player")){
             //Debug.Log("Player Enter Trigger");
             if(respawnPlayer){
@@ -31,6 +32,7 @@ public class LevelTriggers : MonoBehaviour
         }
     }
     private void OnTriggerExit(Collider other){
+        //check if trigger is related to spawn, else stop
         if(other.CompareTag("Player")){
             //Debug.Log("Player Exit Trigger");
             if(!respawnPlayer&&!setSpawn){
@@ -38,6 +40,7 @@ public class LevelTriggers : MonoBehaviour
             }
         }
     }
+    //continously trigger effect until player leaves trigger area
     private void startEffect(){
         effectsCoroutine = StartCoroutine(effects());
     }
