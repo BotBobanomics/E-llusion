@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.UpdateGameState(GameManager.GameState.Play);
         // start of game make sure the right UI shows and the rest is inactive; alternatively could be replace by just using Resume()
         PauseMenuUI.SetActive(false);
         SettingsUI.SetActive(false);

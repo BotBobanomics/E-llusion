@@ -62,6 +62,8 @@ public class GameSettings : MonoBehaviour
     public void Reset(){
         PlayerPrefs.SetFloat("Sensitivity", 1f);
         sensSlider.value = 1f;
+        PlayerPrefs.SetFloat("Volume", 0f);
+        volumeSlider.value = 1f;
     }
     public void ResetCoins(){
         PlayerPrefs.SetFloat("CoinFlags", 0f);
