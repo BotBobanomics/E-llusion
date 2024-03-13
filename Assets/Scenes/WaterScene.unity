@@ -690,7 +690,7 @@ PrefabInstance:
     - target: {fileID: 1910883792862651039, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: coinText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 240865909}
     - target: {fileID: 2196334589323418257, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.87
@@ -3070,7 +3070,7 @@ PrefabInstance:
     - target: {fileID: 1910883792862651039, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: coinText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 240865909}
     - target: {fileID: 2196334589323418257, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.05
@@ -4083,7 +4083,7 @@ PrefabInstance:
     - target: {fileID: 1910883792862651039, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: coinText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 240865909}
     - target: {fileID: 2196334589323418257, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.05
