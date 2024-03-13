@@ -6,6 +6,7 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour
 {
     [SerializeField] Vector3 moveAmount;
+    [SerializeField] float startDelay = 0f;
     [SerializeField] float speed;
     private Vector3 startPoint;
     private Vector3 endPoint;
@@ -25,7 +26,7 @@ public class MovingPlatform : MonoBehaviour
     void OnTriggerEnter(Collider other){
         //start when player enters trigger area
         if(other.CompareTag("Player")){
-            startMove = true;
+            StartCoroutine(DelayStart(startDelay));
         }   
     }
     void Update(){
@@ -41,5 +42,10 @@ public class MovingPlatform : MonoBehaviour
         if(percentMoved>=1){
             startMove = false;
         }
+    }
+
+    IEnumerator DelayStart(float delay){
+        yield return new WaitForSeconds(delay);
+        startMove = true;
     }
 }
