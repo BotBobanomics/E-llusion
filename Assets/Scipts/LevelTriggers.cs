@@ -21,7 +21,7 @@ public class LevelTriggers : MonoBehaviour
         if(other.CompareTag("Player")){
             //Debug.Log("Player Enter Trigger");
             if(respawnPlayer){
-                GameManager.PlayerHealth -= 20;
+                PlayerManager.Instance.damagePlayer(20);
                 PlayerManager.Instance.respawnPlayer();
             }
             else if(setSpawn){

@@ -22,7 +22,7 @@ public class IntroText : MonoBehaviour
         while(alpha>0){
             alpha -= speed * Time.deltaTime;
             text.color = new Color(text.color.r,text.color.g,text.color.b,alpha/100f);
-            Debug.Log((alpha,alpha/100f));
+            //Debug.Log((alpha,alpha/100f));
             yield return null;
         }
     }

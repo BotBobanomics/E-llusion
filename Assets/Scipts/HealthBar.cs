@@ -11,13 +11,24 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Set HealthBar Slider and Text
         HealthBarSlider.maxValue = 100;
+        HealthBarSlider.value = PlayerManager.PlayerHealth;
+        HealthBarText.text = "Health: " + PlayerManager.PlayerHealth;
+
+        // Subscribe to event OnHealthChanged to update healthbar
+        PlayerManager.OnHealthChanged += UpdateHealthBar;
+    }
+    private void OnDestroy()
+    {
+        // Unsubscribe to event on destroy
+        PlayerManager.OnHealthChanged -= UpdateHealthBar;
     }
 
     // Update is called once per frame
-    void Update()
+    public void UpdateHealthBar(int health)
     {
-        HealthBarSlider.value = GameManager.PlayerHealth;
-        HealthBarText.text = "Health: " + GameManager.PlayerHealth;
+        HealthBarSlider.value = health;
+        HealthBarText.text = "Health: " + health.ToString();
     }
 }
