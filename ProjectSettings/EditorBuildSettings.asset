@@ -32,5 +32,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AirScene.unity
     guid: 6ef9ff7f5d3d3ce47b58df1869e7fcbd
+  - enabled: 1
+    path: Assets/Scenes/RestartScene.unity
+    guid: d9d8a12c7d97d2048b23869eb8925f45
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

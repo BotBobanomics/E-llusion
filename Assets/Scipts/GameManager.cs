@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -65,7 +66,9 @@ public class GameManager : MonoBehaviour
 
     private void LoseGame()
     {
-        Debug.Log("loser");
+        SceneManager.LoadScene("RestartScene");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void WinGame()
