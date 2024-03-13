@@ -12,11 +12,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        // record the scene number on load
         PlayerManager.PlayerHealth = maxHealth;
         PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);
-    }
-
-    private void Update()
-    {
     }
 }

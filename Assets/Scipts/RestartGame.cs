@@ -10,6 +10,8 @@ public class NewBehaviourScript : MonoBehaviour
     // set state to play
     public void RestartGame()
     {
+        // change game state to play and launch the last recorded scene
         SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel",0));
+        GameManager.Instance.UpdateGameState(GameManager.GameState.Play);
     }
 }

@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     private void WinGame()
     {
-        throw new NotImplementedException();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
