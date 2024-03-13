@@ -19,11 +19,9 @@ public class IntroText : MonoBehaviour
     IEnumerator FadeText(float delay,float speed){
         yield return new WaitForSeconds(delay); 
         float alpha = 100f;
-        Color32 textColor = text.color;
-        Color32 clearColor = Color.clear;
         while(alpha>0){
             alpha -= speed * Time.deltaTime;
-            text.color = Color32.Lerp(textColor,clearColor,alpha/100f);
+            text.color = new Color(text.color.r,text.color.g,text.color.b,alpha/100f);
             Debug.Log((alpha,alpha/100f));
             yield return null;
         }
