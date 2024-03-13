@@ -11,7 +11,9 @@ public class SceneSwitcher : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    private void OnTriggerEnter(){
-        SceneManager.LoadScene(sceneName);
+    private void OnTriggerEnter(Collider other){
+        if(other.CompareTag("Player")){
+            SceneManager.LoadScene(sceneName);
+        }  
     }
 }
