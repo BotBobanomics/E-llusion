@@ -745,7 +745,7 @@ PrefabInstance:
     - target: {fileID: 1910883792862651039, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: coinText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2068570368}
     - target: {fileID: 2196334589323418257, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5018306
@@ -2659,7 +2659,7 @@ PrefabInstance:
     - target: {fileID: 1910883792862651039, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: coinText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2068570368}
     - target: {fileID: 2196334589323418257, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.591
@@ -5143,7 +5143,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1110788937}
         m_TargetAssemblyTypeName: FirstPersonCam, Assembly-CSharp
         m_MethodName: ChangeSensitivity
         m_Mode: 1
@@ -5196,7 +5196,7 @@ PrefabInstance:
     - target: {fileID: 1910883792862651039, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: coinText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2068570368}
     - target: {fileID: 2196334589323418257, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.738
