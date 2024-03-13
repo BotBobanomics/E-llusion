@@ -30,7 +30,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             Destroy(gameObject);    //  destroys the enemy
             // damage is set within the inspector
-            GameManager.PlayerHealth -= damage;
+            PlayerManager.Instance.damagePlayer(20);
         }
     }
 }

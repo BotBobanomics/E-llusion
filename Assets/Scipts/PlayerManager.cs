@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class PlayerManager : MonoBehaviour
 
     private Vector3 spawnLoc;
     private Rigidbody playerRB;
+
+    public static event Action<int> OnHealthChanged;
 
     public static PlayerManager _instance;
     public static PlayerManager Instance {get{return _instance;}}
@@ -42,5 +45,17 @@ public class PlayerManager : MonoBehaviour
         if(limit>0&&playerRB.velocity.magnitude>limit){
             playerRB.velocity = playerRB.velocity.normalized * limit;
         }
+    }
+    public static int PlayerHealth { get; set; }
+
+    public void damagePlayer(int damage)
+    {
+        PlayerHealth -= damage;
+        if(PlayerHealth <= 0)
+        {
+            GameManager.Instance.UpdateGameState(GameManager.GameState.Lose);
+        }
+
+        OnHealthChanged?.Invoke(PlayerHealth);
     }
 }

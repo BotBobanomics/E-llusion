@@ -65,13 +65,11 @@ public class GameManager : MonoBehaviour
 
     private void LoseGame()
     {
-        throw new NotImplementedException();
+        Debug.Log("loser");
     }
 
     private void WinGame()
     {
         throw new NotImplementedException();
     }
-
-    public static int PlayerHealth { get; set; }
 }

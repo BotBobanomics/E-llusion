@@ -12,12 +12,20 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         HealthBarSlider.maxValue = 100;
+        Debug.Log("HealthBar: " + PlayerManager.PlayerHealth);
+        HealthBarSlider.value = PlayerManager.PlayerHealth;
+        HealthBarText.text = "Health: " + PlayerManager.PlayerHealth;
+        PlayerManager.OnHealthChanged += UpdateHealthBar;
+    }
+    private void OnDestroy()
+    {
+        PlayerManager.OnHealthChanged -= UpdateHealthBar;
     }
 
     // Update is called once per frame
-    void Update()
+    public void UpdateHealthBar(int health)
     {
-        HealthBarSlider.value = GameManager.PlayerHealth;
-        HealthBarText.text = "Health: " + GameManager.PlayerHealth;
+        HealthBarSlider.value = health;
+        HealthBarText.text = "Health: " + health.ToString();
     }
 }
