@@ -469,7 +469,7 @@ PrefabInstance:
     - target: {fileID: 1910883792862651039, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: coinText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1560578966}
     - target: {fileID: 2196334589323418257, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.24
@@ -2451,7 +2451,7 @@ PrefabInstance:
     - target: {fileID: 1910883792862651039, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: coinText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1560578966}
     - target: {fileID: 2196334589323418257, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4157,7 +4157,7 @@ PrefabInstance:
     - target: {fileID: 1910883792862651039, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: coinText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1560578966}
     - target: {fileID: 2196334589323418257, guid: 3d61b476137ef384ba1e68441af10f05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.58
@@ -4399,8 +4399,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -7024,6 +7024,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2367025525491760529, guid: 3757c22e89a211f4cb278a4f59d7ed40, type: 3}
+      propertyPath: sceneName
+      value: AirScene
+      objectReference: {fileID: 0}
     - target: {fileID: 8005878807261030318, guid: 3757c22e89a211f4cb278a4f59d7ed40, type: 3}
       propertyPath: m_Name
       value: Book
@@ -7485,9 +7489,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1110788934}
+      - m_Target: {fileID: 1110788937}
         m_TargetAssemblyTypeName: FirstPersonCam, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: ChangeSensitivity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

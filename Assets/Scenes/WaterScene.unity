@@ -882,8 +882,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2305,7 +2305,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1110788937}
         m_TargetAssemblyTypeName: FirstPersonCam, Assembly-CSharp
         m_MethodName: ChangeSensitivity
         m_Mode: 1
@@ -6744,6 +6744,10 @@ PrefabInstance:
     - target: {fileID: 2153320774290977423, guid: 3757c22e89a211f4cb278a4f59d7ed40, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2367025525491760529, guid: 3757c22e89a211f4cb278a4f59d7ed40, type: 3}
+      propertyPath: sceneName
+      value: FireScene
       objectReference: {fileID: 0}
     - target: {fileID: 8005878807261030318, guid: 3757c22e89a211f4cb278a4f59d7ed40, type: 3}
       propertyPath: m_Name
