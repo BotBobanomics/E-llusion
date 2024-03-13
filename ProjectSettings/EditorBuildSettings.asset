@@ -35,5 +35,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RestartScene.unity
     guid: d9d8a12c7d97d2048b23869eb8925f45
+  - enabled: 1
+    path: Assets/Scenes/VictoryScene.unity
+    guid: 5d968127eda73a844ad1fb56c4e7f1e3
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

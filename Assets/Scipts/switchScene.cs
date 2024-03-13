@@ -13,6 +13,10 @@ public class SceneSwitcher : MonoBehaviour
 
     private void OnTriggerEnter(Collider other){
         if(other.CompareTag("Player")){
+            if(sceneName == "VictoryScene")
+            {
+                GameManager.Instance.UpdateGameState(GameManager.GameState.Win);
+            }
             SceneManager.LoadScene(sceneName);
         }  
     }
