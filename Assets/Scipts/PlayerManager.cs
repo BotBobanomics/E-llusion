@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     private Vector3 spawnLoc;
     private Rigidbody playerRB;
 
+    // Create event for other script to subscribe to
     public static event Action<int> OnHealthChanged;
 
     public static PlayerManager _instance;
@@ -55,7 +56,7 @@ public class PlayerManager : MonoBehaviour
         {
             GameManager.Instance.UpdateGameState(GameManager.GameState.Lose);
         }
-
+        // Invoke if any script is subscribed to it
         OnHealthChanged?.Invoke(PlayerHealth);
     }
 }
