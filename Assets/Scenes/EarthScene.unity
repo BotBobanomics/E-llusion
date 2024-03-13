@@ -953,7 +953,7 @@ GameObject:
   - component: {fileID: 235288374}
   - component: {fileID: 235288373}
   - component: {fileID: 235288372}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2619,7 +2619,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506887376}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &506887382
 Camera:
   m_ObjectHideFlags: 0
@@ -5025,6 +5025,7 @@ GameObject:
   - component: {fileID: 889187615}
   - component: {fileID: 889187614}
   - component: {fileID: 889187617}
+  - component: {fileID: 889187618}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5147,6 +5148,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+--- !u!114 &889187618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889187612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0636723a3761e6a4a93bbe2778e1866c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xAmount: 10
+  yAmount: 5
+  mult: 1000
+  velocityLimit: 10
 --- !u!1 &892400470
 GameObject:
   m_ObjectHideFlags: 0
