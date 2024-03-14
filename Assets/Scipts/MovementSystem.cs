@@ -60,6 +60,8 @@ public class MovementSystem : MonoBehaviour
 
     public MovementState state;
 
+    AudioManager audioManager;
+
     public enum MovementState
     {
         walking,
@@ -71,13 +73,17 @@ public class MovementSystem : MonoBehaviour
 
     public bool sliding;
 
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     private void Start()
     {
         grounded = true;
 
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-
+        jumpCD = 0.1f;
         jumpReady = true;
 
         startYScale = transform.localScale.y;
@@ -284,6 +290,8 @@ public class MovementSystem : MonoBehaviour
     private void Jump()
     {
         //Debug.Log("Jumping");
+        // play audio for jumping
+        audioManager.PlaySFX(audioManager.jump);
 
         exitingSlope = true;
 

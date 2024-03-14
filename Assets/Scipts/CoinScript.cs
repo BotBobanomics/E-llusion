@@ -11,6 +11,13 @@ public class CoinScript : MonoBehaviour
     int coinFlags;
     int coins;
     float intitalY;
+
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager =GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Start(){
         //use coin flags as a bit vector
         coinFlags = PlayerPrefs.GetInt("CoinFlags",0);
@@ -34,6 +41,7 @@ public class CoinScript : MonoBehaviour
     }
     void OnTriggerEnter(Collider other){ //coin is collected
         if(other.CompareTag("Player")){
+            audioManager.PlaySFX(audioManager.coinPickup);
             setFlag();
             gameObject.SetActive(false);
         }

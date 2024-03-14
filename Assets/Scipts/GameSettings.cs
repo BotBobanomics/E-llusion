@@ -13,8 +13,8 @@ public class GameSettings : MonoBehaviour
     public AudioMixer audioMixer;
     public TextMeshProUGUI volumeText;
     public Slider volumeSlider;
-    public int minVolume;
-    public int maxVolume;
+    public float minVolume;
+    public float maxVolume;
 
     [Header("Sensitivity")]
     public TextMeshProUGUI sensText;
@@ -31,13 +31,15 @@ public class GameSettings : MonoBehaviour
     private void Start()
     {
         // set the max and min for volume
+        minVolume = 0.0001f;
+        maxVolume = 1f;
         volumeSlider.maxValue = maxVolume;
         volumeSlider.minValue = minVolume;
 
         // update volume UI
         audioMixer.SetFloat("volume", Mathf.Log10(PlayerPrefs.GetFloat("Volume")) * 20);
-        volumeSlider.value = PlayerPrefs.GetFloat("Volume", 0f);
-        volumeText.text = "Volume: " + (PlayerPrefs.GetFloat("Volume", 0f) * 100).ToString("0") + "%";
+        volumeSlider.value = PlayerPrefs.GetFloat("Volume", 1f);
+        volumeText.text = "Volume: " + (PlayerPrefs.GetFloat("Volume", 1f) * 100).ToString("0") + "%";
 
         // set the max and min for sens
         sensSlider.minValue = minSens;
@@ -52,7 +54,7 @@ public class GameSettings : MonoBehaviour
         // change the volume; math is used to convert percentage (0 to 1) to decibel
         audioMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("Volume", volume);
-        volumeText.text = "Volume: " + (PlayerPrefs.GetFloat("Volume", 0f) * 100).ToString("0") + "%";
+        volumeText.text = "Volume: " + (PlayerPrefs.GetFloat("Volume", 1f) * 100).ToString("0") + "%";
     }
     public void SetSensitivity(float sensitivity)
     {
@@ -63,7 +65,7 @@ public class GameSettings : MonoBehaviour
     public void Reset(){
         PlayerPrefs.SetFloat("Sensitivity", 1f);
         sensSlider.value = 1f;
-        PlayerPrefs.SetFloat("Volume", 0f);
+        PlayerPrefs.SetFloat("Volume", 1f);
         volumeSlider.value = 1f;
     }
     public void ResetCoins(){
