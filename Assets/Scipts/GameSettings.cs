@@ -25,7 +25,7 @@ public class GameSettings : MonoBehaviour
 
     private void Awake()
     {
-        Application.targetFrameRate = 61;
+        //Application.targetFrameRate = 61;
         audioMixer.SetFloat("volume", Mathf.Log10(PlayerPrefs.GetFloat("Volume")) * 20);
     }
     private void Start()
