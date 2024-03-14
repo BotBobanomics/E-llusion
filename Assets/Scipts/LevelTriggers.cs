@@ -51,7 +51,7 @@ public class LevelTriggers : MonoBehaviour
     IEnumerator effects(){
         while(true){
             if(pushPlayer){
-                PlayerManager.Instance.pushPlayer(pushAmount,Vector3.up,20f);
+                PlayerManager.Instance.pushPlayer(pushAmount*Time.deltaTime,Vector3.up,20f);
             }
             if(changeGravity){
                 PlayerManager.Instance.setYVelocity(gravAmount);
